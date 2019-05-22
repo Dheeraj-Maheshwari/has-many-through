@@ -1,0 +1,64 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<hr>
+<div class="card">
+  <table class="table table-hover shopping-cart-wrap">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col">Patients Record</th>
+        <th scope="col" width="120"></th>
+        <th scope="col" width="120"></th>
+        <th scope="col" width="200" class="text-right">Action</th>
+        <% @patients.each do  |patient|%>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <figure class="media">
+            <div class="img-wrap"><img src="/assets/download.png"></div>
+            <figcaption class="media-body">
+              <h6 class="title text-truncate"><pre><%= patient.name%></pre></h6>
+              <dl class="param param-inline small">
+                <dt>Address </dt>
+                <dd> <%= patient.address%></dd>
+              </dl>
+              <dl class="param param-inline small">
+                <dt>Permanent address: </dt>
+                <dd><%= patient.permanentaddress%></dd>
+              </dl>
+              <dl class="param param-inline small">
+                <dt>Gender: </dt>
+                <dd><%= patient.gender%></dd>
+              </dl>
+              <dl class="param param-inline small">
+                <dt>Disease: </dt>
+                <dd><%= patient.disease%></dd>
+              </dl>
+              <dl class="param param-inline small">
+                <dt>Allergies: </dt>
+                <dd><%= patient.allergies%></dd>
+              </dl>
+              <dl class="param param-inline small">
+                <dt>Allergetic_to: </dt>
+                <dd><%= patient.allergetic_to%></dd>
+              </dl>
+               <div class="price-wrap"> 
+            <var class="price"> <%= link_to "Delete", patient_path(patient),data: { confirm: "Are you sure?" }, method: :delete %></var> 
+            <small class="text-muted"></small> 
+          </div>
+          <div class="price-wrap"> 
+            <var class="price"> <%= link_to "Update patient", edit_patient_path(patient) %></var> 
+            <small class="text-muted"></small> 
+          </div>
+            </figcaption>
+          </figure>
+           <%end%>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div> 
+<br><br>

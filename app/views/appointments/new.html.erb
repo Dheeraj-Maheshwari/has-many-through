@@ -1,0 +1,14 @@
+	<%= form_for @appointment, url: appointments_path ,remote: true do |f|%>
+<table style= "width:18%" border = "1" cellpadding = "5" cellspacing = "5" bgcolor="gray">
+	<tr style="color:green;">
+ 	  
+ 	<td><%= f.label :patient_id %></td> 
+ 	<td><%= f.label :doctor_id %></td>     
+
+ <%=  f.collection_select(:patient, Patient.all, :id, :name) %>
+ <%=  f.collection_select(:doctor, Doctor.all, :id, :name) %>
+
+	</tr>
+ </table>
+	<%= f.submit "create"%>
+<%end%>

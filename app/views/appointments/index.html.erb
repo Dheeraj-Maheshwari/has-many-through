@@ -1,0 +1,22 @@
+
+  
+<table style= "width:100%" border = "1" cellpadding = "5" cellspacing = "5" >
+		<h1>Appointment Record</h1>
+	<tr >
+		<td align="center">patient_id/name</td>	
+		<td align="center">doctor_id/name</td>
+		<td align="center" colspan="3">Action</td>
+	</tr>
+	<% @appointments.each do  |appointment|%>
+
+			<td align="center"><%= appointment.patient_id%></td>	
+			<td align="center"><%= appointment.doctor_id%></td>	
+
+				
+			<td align="center"><%= link_to "View appointment", appointment_path(appointment) %></td>
+			<td align="center"><%= link_to "Update appointment", edit_appointment_path(appointment) %></td>
+			<td align="center"><%= link_to "Delete appointment", appointment_path(appointment), method: :delete %></td>
+		</tr>
+	<%end%>
+</table>
+	

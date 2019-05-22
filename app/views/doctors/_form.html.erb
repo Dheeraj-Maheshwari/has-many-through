@@ -1,0 +1,5 @@
+<%= simple_form_for @doctor, remote: true ,authenticity: true do |f|   %>
+  <%= f.input  :name   %>
+  <%= f.input  :department%>
+  <%= f.button :submit%>
+<% end %>

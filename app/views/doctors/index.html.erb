@@ -1,0 +1,29 @@
+<table style= "width:100%" border = "1" cellpadding = "5" cellspacing = "5" >
+		<h1>doctor Record</h1>
+	<tr style="background-color:color:white;">
+		<td align="center">Name</td>
+		<td align="center">department</td>
+		<td align="center">fees</td>
+		<td align="center" colspan="3">Action</td>>
+	</tr>
+	<% @doctors.each do  |doctor|%>
+		<td align="center"><%= doctor.name%></td>	
+		<td align="center"><%= doctor.department%></td>
+		<td align="center"><%= doctor.fees%></td>		
+		<td align="center"><%= link_to "Delete doctor", doctor_path(doctor), method: :delete , remote: true, id: "1", class: "del" %></td>
+		</tr>
+	<%end%>
+</table>
+
+	<script type="text/javascript">
+		$('1').click(function(){
+		$.ajax({
+		type: "DELETE",
+		url: '/destroy',
+		async: true,
+		data: { logDownload: true, file: $(this).attr("name") }
+		});
+		return false;
+		});
+	</script>
+

@@ -1,0 +1,25 @@
+
+<%= form_for @doctor , remote: true, authenticity: true do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :department %>
+  <%= f.text_field :department %>
+  <%= f.label :fees %>
+  <%= f.number_field :fees, :class => 'text_field' %>
+<%= f.submit "create"%>
+<%end%>
+
+<script type="text/javascript">
+  $(function(){
+    $("#new_doctor").on("submit", function(event){
+      $.ajax({
+        type: "get",
+        url: '/create_doctor',
+        data: $(this).serialize(),
+        success: function(response) {
+        //update the DOM
+      }
+    });
+    });
+  })
+</script>

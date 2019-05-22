@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+ <div style="padding-left:16px">
+   <h2>New Patient</h2>
+ </div>
+</head>
+<body>
+ <script src="//cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
+ <%= simple_form_for @patient ,:html => {:name =>"myform",:onsubmit => "return validate();"} do |f| %>
+ <div class="container">
+  <table style= "width:100%" border = "1" cellpadding = "5" cellspacing = "5" bgcolor="gray">
+    <div class="form-group ">
+      <%= f.label :name, class: "control-label" %>
+      <%= f.text_field :name, class: "form-control",id: "name", placeholder: 'Name' , required: true %>
+    </div>
+    <div class="form-group ">
+      <%= f.label :disease, class: "control-label" %>
+      <%= f.text_field :disease, class: "form-control" ,id: "disease" , placeholder: 'Disease'%>
+    </div>
+    <div class="form-group ">
+      <%= f.label :address, class: "control-label"  %>
+      <%= f.text_field :address,  class: "form-control" ,id: "add" , placeholder: 'Address'%>
+    </div>
+    PermanentAddress: <input type="checkbox" id="myCheck"  onclick="myFunction()">
+    <p id="text" style="display:none"><%= f.text_field :permanentaddress,  class: "form-control" , placeholder: 'permanentaddress', id: "per" ,readonly: "true"%></p>  
+    <div class="form-check">
+      <%= f.input :gender ,as: :radio_buttons, collection: [['Female' , 'female'], ['Male', 'male']],id: "gender" %>
+    </div>
+    <div class="form-check">
+      <%= f.input :allergies %>
+    </div>
+    <div class="form-check">
+      <%= f.input :allergetic_to %>
+    </div>
+    <div class="form-group"  >        
+     <%#= f.button :submit %>
+     <input type="submit" value="Submit" class="asc" >
+     <input type="reset" value="Reset">
+   </div>
+   <%end%>
+  </div>
+  </form>
+  </div>
+</body>
+</html>
+<script>  
+  $( document ).ready(function() {
+    $("#new_patient").submit(function(){
+      alert("Submitted");
+    });
+  });
+
+  function validate() {
+   if( document.myform.name.value == "" ) {
+    alert( "Please provide your name!" );
+    document.myform.name.focus() ;
+    return false;
+  }
+  if( document.myform.disease.value == "" ) {
+    alert( "Please provide your disease!" );
+    document.myform.disease.focus() ;
+    return false;
+  }
+  if( document.myform.add.value == "" ) {
+    alert( "Please provide your address!" );
+    document.myform.add.focus() ;
+    return false;
+  }
+
+   if( document.myform.gender.value == "" ) {
+    alert( "Please provide your gender!" );
+    document.myform.gender.focus() ;
+    return false;
+  }
+
+  }
+
+  function myFunction() {
+    var checkBox = document.getElementById("myCheck");
+    var text = document.getElementById("text");
+    if (checkBox.checked == true){
+     document.getElementById('per').value=document. 
+     getElementById('add').value; 
+     text.style.display = "block";
+   }  else {
+    text.style.display = "none";
+    document.getElementById('per').value=""; 
+  }
+  }
+</script>  

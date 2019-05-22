@@ -1,0 +1,22 @@
+<table style= "width:100%" border = "1" cellpadding = "5" cellspacing = "5" bgcolor="gray">
+	<tr style="background-color:yellowgreen;color:white;">
+		<td>Name</td>
+		<td>Disease</td>
+		<td>Gender</td>
+		<td>Address</td>
+		<td>PermanentAddress</td>
+		<td>Allergies</td>
+		<td>Allergetic to Pills</td>
+	</tr>
+	<tr>
+		<td><%= @patient.name%></td>
+		<td><%= @patient.disease%></td>	
+		<td><%= @patient.gender%></td>
+		<td><%= @patient.address%></td>	
+		<td><%= @patient.permanentaddress%></td>
+		<td><%= @patient.allergies%></td>		
+		<td><%= @patient.allergetic_to%></td>		
+	</tr>
+</table>
+<%= link_to "Create another", new_patient_path %>
+<%= link_to "Homepage", patients_path %>

@@ -1,0 +1,24 @@
+<%= form_for @patient do |f|%>
+<table style= "width:100%" border = "1" cellpadding = "5" cellspacing = "5" bgcolor="lemonchiffon">
+	<h1>patients Record</h1>
+	<tr style="background-color:gray;color:grey;">
+	 <td><%= f.label :name %>
+	     <%= f.text_field :name %></td>
+	 <td><%= f.label :disease %>
+	     <%= f.text_field :disease %></td>
+   <td><%= f.label :address %>
+       <%= f.text_area(:address, size: '15x2') %></td>
+    <td><%= f.label :permanentaddress %>
+       <%= f.text_area(:permanentaddress, size: '15x2') %></td>
+   <td><b>Patient's gender</b><br />
+       <%= f.radio_button :gender, 'Male' %> Male<br />
+       <%= f.radio_button :gender, 'Female' %> Female<br /></td>
+    <td>Please select if patient is allergetic to anything
+        <%= f.check_box :allergies %> </td>   
+   <td><%= f.check_box :allergetic_to %>
+       <%= label_tag(:pills, "Pills") %></td>
+	</tr>
+</table>
+       <%= f.submit "Update"%>
+<%end%>
+	     <%= link_to "Home/Cancel", patients_path %>

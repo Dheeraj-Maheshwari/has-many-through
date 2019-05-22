@@ -1,0 +1,23 @@
+
+<%= form_for @appointment do |f|%>
+<table style= "width:18%" border = "1" cellpadding = "5" cellspacing = "5" bgcolor="lemonchiffon">
+	<h1>appointments Record</h1>
+	<tr style="background-color:goldenrod;color:white;">
+
+
+	<td><%= f.label :patient_id %></td>
+	<td><%= f.label :doctor_id %></td>
+ 
+  <!-- <td><%= f.text_field :patient_id %></td>
+  <td><%= f.text_field :doctor_id %></td>  -->
+  
+<%=  f.collection_select(:patient, Patient.all, :id, :name) %>
+ <%=  f.collection_select(:doctor, Doctor.all, :id, :name) %>
+
+		</tr> 
+
+</table>
+
+	<%= f.submit "Update"%>
+	<%end%>
+	<%= link_to "Home/Cancel", patients_path %>

@@ -1,0 +1,22 @@
+
+<%= form_for @doctor do |f|%>
+<table style= "width:100%" border = "1" cellpadding = "5" cellspacing = "5" bgcolor="lemonchiffon">
+	<h1>Doctors Record</h1>
+	<tr style="background-color:goldenrod;color:white;">
+
+	<td><%= f.label :name %></td>
+	<td><%= f.text_field :name %></td>
+
+	<td><%= f.label :department %></td>
+	<td><%= f.text_field :department %></td>
+
+	<td><%= f.label :fees %></td>
+	<td><%= f.text_field :fees %></td>
+
+		</tr>
+
+</table>
+
+	<%= f.submit "Update"%>
+	<%end%>
+	<%= link_to "Home/Cancel", patients_path %>
